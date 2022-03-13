@@ -1,0 +1,41 @@
+install bcryptjs and jsonwebtoken
+import are bcrypt and jwt async handler
+
+register user
+    destructure name email and password from request body
+    validate that all fields are populated
+    check if user exists using findOne Mongoose method on the User userModel
+    hash password:
+        generate salt with genSalt
+        set hashed password to await hash method using arguments of password and salt
+    use create method to create new password
+    if user was created, then set 200 and send a response of user details
+
+authenticate user
+    destructure email from request body
+    use Mongoose method findOne using email to check if user exists and also bcrypt compare method to check password
+    if all matches then respond with the user details or throw error if not
+
+generate token
+    create a secret in dotenv
+    create generateToken function that takes in the id as argument
+        use jwt sign method with three arguments
+            object with id as only key/value
+            secret
+            options object with expiresIn
+
+add generate token to register user and authenticate user functions
+
+auth middleware
+    import jwt, user model and async handler
+    create and export protect function - takes in, as arguments, normal middleware arguments
+        protect function
+            determine with a conditional that there is an authorization in the request headers
+            and that the authorization 'startsWith' 'Bearer'
+            try catch block
+                try - get the token by splitting the auth by ' ' to split the word 'bearer' from the token - this turns each word into item in array
+            set verified token to decoded variable by using the jwt verify method, passing in the token and the secret as arguments
+            set req.user to await the findbyid method on the User, chain on the select method to take away the password from the query
+            next()
+                catch - log the error, then set 401 and throw error
+            if no token then set 401 and throw error

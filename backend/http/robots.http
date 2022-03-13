@@ -1,0 +1,28 @@
+@url = http://localhost:5000/api/robots
+
+GET {{url}} HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMjliMjBhYTY1MmJmMTc2MjkyYzVmMyIsImlhdCI6MTY0NzE1NjEzMiwiZXhwIjoxNjQ5NzQ4MTMyfQ.Zkmb9OUcGU0LtAQ7mXUEfntur1rjbmsgpvKD0HlX2ic
+
+###
+
+POST {{url}} HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMjliMjZjYTY1MmJmMTc2MjkyYzVmYSIsImlhdCI6MTY0NzE1NjE3OSwiZXhwIjoxNjQ5NzQ4MTc5fQ._eIyvyEtDHglV-GhGvT8EWuEZvGBiGALGIskbZHhiro
+
+{
+    "name": "Roar's bot 1"
+}
+
+###
+
+PUT {{url}}/6229a706575a9a069971ff90 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMjViMTE1YzY0OGYxZTgzZjg4MGJhZCIsImlhdCI6MTY0Njg5OTI1OCwiZXhwIjoxNjQ5NDkxMjU4fQ.LVE9qiN1imQBrbeOLDwJbYSVX9vLmFfzbYq-RPYwIjg
+
+{
+    "name": "changed protected robot"
+}
+
+###
+
+DELETE {{url}}/621730a2f445469d02724b4d HTTP/1.1
