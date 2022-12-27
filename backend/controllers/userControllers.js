@@ -3,12 +3,13 @@ const User = require('../models/userModel')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+// const jwtSecret = 'secret123'
 const jwtSecret = process.env.JWT_SECRET
 
 // @desc    Register user
 // @route   POST /api/users
 // @access  Public
-const registerUser = asyncHandler(async  (req, res) => {
+const registerUser = asyncHandler(async (req, res) => {
     // destructure all user fields from the request body
     const { name, email, password } = req.body
     // check all fields are completed
@@ -38,7 +39,7 @@ const registerUser = asyncHandler(async  (req, res) => {
             _id: user._id,
             name: user.name,
             email: user.email,
-            token: generateToken(user._id)
+            token: generateToken(user._id, user.email)
         })        
     } else {
         res.status(400)
@@ -56,10 +57,10 @@ const authenticateUser = asyncHandler(async (req, res) => {
     })
     if(user && (await bcrypt.compare(password, user.password))) {
         res.json({
-            _id: user._id,
+            _id: user.id,
             name: user.name,
             email: user.email,
-            token: generateToken(user._id)
+            token: generateToken(user._id, user.email)
         })
     } else {
         res.status(400)
@@ -80,8 +81,8 @@ const getCurrentUser = asyncHandler(async (req, res) => {
 })
 
 // generate jwt token
-const generateToken = (id) => {
-    return jwt.sign({ id }, jwtSecret, {
+const generateToken = (id, email) => {
+    return jwt.sign({ id, email }, jwtSecret, {
         expiresIn: '30d'
     })
 }

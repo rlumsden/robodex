@@ -1,28 +1,30 @@
 @url = http://localhost:5000/api/robots
 
 GET {{url}} HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMjliMjBhYTY1MmJmMTc2MjkyYzVmMyIsImlhdCI6MTY0NzE1NjEzMiwiZXhwIjoxNjQ5NzQ4MTMyfQ.Zkmb9OUcGU0LtAQ7mXUEfntur1rjbmsgpvKD0HlX2ic
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTVhNzgyYmE2ODAyMzVlNzgzZDQ2ZCIsImlhdCI6MTY3MTgwNzE1MCwiZXhwIjoxNjc0Mzk5MTUwfQ.CMYz8nDqB7kOU11Lh0HiHw5SNIHWhelCwbge0DJcQ1w
 
 ###
 
 POST {{url}} HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMjliMjZjYTY1MmJmMTc2MjkyYzVmYSIsImlhdCI6MTY0NzE1NjE3OSwiZXhwIjoxNjQ5NzQ4MTc5fQ._eIyvyEtDHglV-GhGvT8EWuEZvGBiGALGIskbZHhiro
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTVhNzgyYmE2ODAyMzVlNzgzZDQ2ZCIsImlhdCI6MTY3MTgwNzE1MCwiZXhwIjoxNjc0Mzk5MTUwfQ.CMYz8nDqB7kOU11Lh0HiHw5SNIHWhelCwbge0DJcQ1w
 
 {
-    "name": "Roar's bot 1"
+    "name": "Dave's bot 5"
 }
 
 ###
 
-PUT {{url}}/6229a706575a9a069971ff90 HTTP/1.1
+PUT {{url}}/63a5c14d27eba7ec6286fc84 HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMjViMTE1YzY0OGYxZTgzZjg4MGJhZCIsImlhdCI6MTY0Njg5OTI1OCwiZXhwIjoxNjQ5NDkxMjU4fQ.LVE9qiN1imQBrbeOLDwJbYSVX9vLmFfzbYq-RPYwIjg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTVhNzgyYmE2ODAyMzVlNzgzZDQ2ZCIsImVtYWlsIjoiZGF2ZUBnbWFpbC5jb20iLCJpYXQiOjE2NzE4MDg0OTksImV4cCI6MTY3NDQwMDQ5OX0.tosZ5h5b-VDATq1y_7nfFBcjXiVM39lWrcsOhg4MFr8
 
 {
-    "name": "changed protected robot"
+    "name": "Dave's bot 1"
 }
 
 ###
 
-DELETE {{url}}/621730a2f445469d02724b4d HTTP/1.1
+DELETE {{url}}/63a5c2a927eba7ec6286fca2 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTVhNzgyYmE2ODAyMzVlNzgzZDQ2ZCIsImVtYWlsIjoiZGF2ZUBnbWFpbC5jb20iLCJpYXQiOjE2NzE4MDg0OTksImV4cCI6MTY3NDQwMDQ5OX0.tosZ5h5b-VDATq1y_7nfFBcjXiVM39lWrcsOhg4MFr8

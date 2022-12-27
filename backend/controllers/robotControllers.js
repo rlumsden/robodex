@@ -2,6 +2,7 @@ const asyncHandler = require('express-async-handler')
 const Robot = require('../models/robotModel')
 const User = require('../models/userModel')
 
+
 // @desc    Get all users robots
 // @route   GET /api/robots
 // @access  Private
@@ -19,12 +20,6 @@ const addNewRobot = asyncHandler(async (req, res) => {
         throw new Error('please add name')
     }
 
-    // const user = User.findById(req.user.id)
-    if (!req.body.name) {
-        res.status(400)
-        throw new Error('Please add a text field')
-      }
-
     const robot = await Robot.create({
         name: req.body.name,
         user: req.user.id
@@ -37,12 +32,14 @@ const addNewRobot = asyncHandler(async (req, res) => {
 // @access  Private
 const updateRobot = asyncHandler(async (req, res) => {
     const robot = await Robot.findById(req.params.id)
+    // console.log(robot.user)
     if(!robot) {
         res.status(400)
         throw new Error('robot not found')
     }
 
-    const user = User.findById(req.user.id)
+    const user = await User.findById(req.user.id)
+    console.log(user.id)
     // check for user
     if(!user) {
         res.status(401)
@@ -56,7 +53,7 @@ const updateRobot = asyncHandler(async (req, res) => {
 
     const updatedRobot = await Robot.findByIdAndUpdate(
         req.params.id,
-        req.body
+        req.body 
     )
     res.json(updatedRobot)
 })
@@ -65,13 +62,13 @@ const updateRobot = asyncHandler(async (req, res) => {
 // @route   DELETE /api/robots/:id
 // @access  Private
 const deleteRobot = asyncHandler(async (req, res) => {
-    const robot = Robot.findById(req.params.id)
+    const robot = await Robot.findById(req.params.id)
     if(!robot) {
         res.status(400)
         throw new Error('robot not found')
     }
 
-    const user = User.findById(req.user.id)
+    const user = await User.findById(req.user.id)
     // check for user
     if(!user) {
         res.status(401)

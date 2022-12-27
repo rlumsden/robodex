@@ -4,9 +4,9 @@ POST {{url}} HTTP/1.1
 content-type: application/json
 
 {
-    "name": "dave",
-    "email": "dave@gmail.com",
-    "password": "dave123"
+    "name": "mollie",
+    "email": "mollie@gmail.com",
+    "password": "mollie123"
 }
 
 ###
@@ -23,4 +23,4 @@ content-type: application/json
 
 GET {{url}}/me HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMjliMjBhYTY1MmJmMTc2MjkyYzVmMyIsImlhdCI6MTY0NzE1NjEzMiwiZXhwIjoxNjQ5NzQ4MTMyfQ.Zkmb9OUcGU0LtAQ7mXUEfntur1rjbmsgpvKD0HlX2ic
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTVhNzgyYmE2ODAyMzVlNzgzZDQ2ZCIsImVtYWlsIjoiZGF2ZUBnbWFpbC5jb20iLCJpYXQiOjE2NzE4MDg0OTksImV4cCI6MTY3NDQwMDQ5OX0.tosZ5h5b-VDATq1y_7nfFBcjXiVM39lWrcsOhg4MFr8
